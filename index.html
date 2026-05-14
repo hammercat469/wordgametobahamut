@@ -14,11 +14,10 @@
 }
 
 body{
+
     margin:0;
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    min-height:100vh;
 
     color:white;
 
@@ -26,11 +25,16 @@ body{
 
     text-align:center;
 
-    min-height:100vh;
-
     padding:20px;
 
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
     transition:1s;
+
+    overflow:hidden;
+
 }
 
 body::before{
@@ -48,47 +52,64 @@ body::before{
 }
 
 h1{
+
     margin-bottom:10px;
+
+    font-size:52px;
+
+    text-shadow:0 0 20px black;
+
 }
 
 #score{
+
     margin-bottom:20px;
-    font-size:20px;
+
+    font-size:24px;
+
+    text-shadow:0 0 10px black;
+
 }
 
 .imageBox{
+
     margin-bottom:25px;
+
 }
 
 .imageBox img{
 
-    width:300px;
-    height:300px;
+    width:320px;
+    height:320px;
 
     object-fit:contain;
 
-    background:#111;
+    background:rgba(0,0,0,0.5);
 
     border-radius:24px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
 
 }
 
 #prefix{
 
-    font-size:34px;
+    font-size:42px;
+
     font-weight:bold;
 
     color:#ffe27a;
 
     margin-bottom:20px;
 
+    text-shadow:0 0 15px black;
+
 }
 
 .answer{
 
     display:flex;
+
     justify-content:center;
 
     gap:10px;
@@ -96,27 +117,33 @@ h1{
     margin-bottom:25px;
 
     flex-wrap:wrap;
+
 }
 
 .slot{
 
-    width:65px;
-    height:65px;
+    width:70px;
+    height:70px;
 
     background:#3d456d;
 
-    border-radius:16px;
+    border-radius:18px;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
-    font-size:30px;
+    font-size:34px;
+
     font-weight:bold;
 
     cursor:pointer;
 
     transition:0.2s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.5);
+
 }
 
 .slot.filled{
@@ -130,33 +157,41 @@ h1{
 .tiles{
 
     display:flex;
+
     justify-content:center;
 
     gap:10px;
 
     flex-wrap:wrap;
 
+    max-width:800px;
+
+    margin:auto;
+
 }
 
 .tile{
 
-    width:65px;
-    height:65px;
+    width:70px;
+    height:70px;
 
     border:none;
 
-    border-radius:16px;
+    border-radius:18px;
 
     background:white;
 
     color:#222;
 
-    font-size:28px;
+    font-size:32px;
+
     font-weight:bold;
 
     cursor:pointer;
 
     transition:0.2s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.5);
 
 }
 
@@ -168,7 +203,7 @@ h1{
 
 .tile.used{
 
-    opacity:0.2;
+    opacity:0;
 
     transform:scale(0);
 
@@ -178,12 +213,15 @@ h1{
 
 #message{
 
-    margin-top:25px;
+    margin-top:30px;
 
     min-height:40px;
 
-    font-size:30px;
+    font-size:34px;
+
     font-weight:bold;
+
+    text-shadow:0 0 10px black;
 
 }
 
@@ -205,24 +243,23 @@ h1{
 
     inset:0;
 
-    background:rgba(0,0,0,0.9);
+    background:rgba(0,0,0,0.92);
 
     display:none;
 
     justify-content:center;
+
     align-items:center;
 
     flex-direction:column;
 
-    z-index:100;
-
-    animation:fadeIn 1s;
+    z-index:999;
 
 }
 
 #birthday h1{
 
-    font-size:70px;
+    font-size:90px;
 
     color:#ffe27a;
 
@@ -232,30 +269,22 @@ h1{
 
 #birthday p{
 
-    font-size:32px;
-
-}
-
-@keyframes fadeIn{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
+    font-size:42px;
 
 }
 
 @keyframes pop{
 
     from{
+
         transform:scale(1);
+
     }
 
     to{
+
         transform:scale(1.1);
+
     }
 
 }
@@ -270,7 +299,9 @@ h1{
 <div id="score"></div>
 
 <div class="imageBox">
+
     <img id="image" src="">
+
 </div>
 
 <div id="prefix"></div>
@@ -291,34 +322,35 @@ h1{
 
 <script>
 
+// 問題
 const questions = [
 
 {
-    image:"A.jpg",
+    image:"ガンドロス.jpg",
     prefix:"砲龍",
     answer:"ガンドロス"
 },
 
 {
-    image:"B2.png",
+    image:"ダライアサン.png",
     prefix:"海龍",
     answer:"ダライアサン"
 },
 
 {
-    image:"C.png",
+    image:"ディオラムス.png",
     prefix:"覇龍",
     answer:"ディオラムス"
 },
 
 {
-    image:"D.jpg",
+    image:"バルス.jpg",
     prefix:"竜騎士",
     answer:"バルス"
 },
 
 {
-    image:"E.png",
+    image:"ソドム.png",
     prefix:"地龍",
     answer:"ソドム"
 }
@@ -328,15 +360,16 @@ const questions = [
 // 背景画像
 const backgrounds = [
 
-"A.jpg",
-"B2.png",
-"C.png",
-"D.jpg",
-"E.png"
+"ガンドロス.jpg",
+"ソドム.png",
+"ダライアサン.png",
+"ディオラムス.png",
+"バベル.png"
 
 ];
 
 let currentQuestion = 0;
+
 let score = 0;
 
 let selectedQuestions = [];
@@ -396,9 +429,11 @@ function loadQuestion(){
         document.getElementById("message");
 
     answerDiv.innerHTML = "";
+
     tilesDiv.innerHTML = "";
 
     message.textContent = "";
+
     message.className = "";
 
     const letters =
@@ -406,7 +441,7 @@ function loadQuestion(){
 
     let currentAnswer = [];
 
-    // 1文字表示
+    // 最初から表示する文字
     const revealIndex =
         Math.floor(
             Math.random() * letters.length
@@ -435,6 +470,7 @@ function loadQuestion(){
 
         }
 
+        // 消せる
         slot.onclick = ()=>{
 
             if(slot.dataset.locked === "true")
@@ -473,7 +509,7 @@ function loadQuestion(){
 
     });
 
-    // カタカナ選択肢
+    // 選択肢
     let choices = [...letters];
 
     const katakana =
@@ -535,11 +571,13 @@ function loadQuestion(){
 
             button.classList.add("used");
 
+            // 全部埋まった
             if(!currentAnswer.includes("")){
 
                 const result =
                     currentAnswer.join("");
 
+                // 正解
                 if(result === q.answer){
 
                     message.textContent =
@@ -560,6 +598,7 @@ function loadQuestion(){
 
                 }
 
+                // 次へ
                 setTimeout(()=>{
 
                     currentQuestion++;
