@@ -35,6 +35,10 @@ body{
 
     overflow:hidden;
 
+    touch-action:manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 body::before{
@@ -144,6 +148,10 @@ h1{
 
     box-shadow:0 5px 15px rgba(0,0,0,0.5);
 
+    touch-action:manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 .slot.filled{
@@ -192,6 +200,10 @@ h1{
     transition:0.2s;
 
     box-shadow:0 5px 15px rgba(0,0,0,0.5);
+
+    touch-action:manipulation;
+
+    -webkit-tap-highlight-color: transparent;
 
 }
 
@@ -530,7 +542,7 @@ function loadQuestion(){
 
         }
 
-        slot.onclick = ()=>{
+        slot.addEventListener("click", ()=> {
 
             if(slot.dataset.locked === "true")
                 return;
@@ -562,7 +574,7 @@ function loadQuestion(){
 
             });
 
-        };
+        });
 
         answerDiv.appendChild(slot);
 
@@ -601,7 +613,7 @@ function loadQuestion(){
 
         button.textContent = letter;
 
-        button.onclick = ()=>{
+        button.addEventListener("click", ()=> {
 
             if(button.classList.contains("used"))
                 return;
@@ -695,7 +707,7 @@ function loadQuestion(){
 
             }
 
-        };
+        });
 
         tilesDiv.appendChild(button);
 
