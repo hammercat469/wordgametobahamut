@@ -55,7 +55,7 @@ h1{
 
     margin-bottom:10px;
 
-    font-size:52px;
+    font-size:min(12vw,52px);
 
     text-shadow:0 0 20px black;
 
@@ -65,7 +65,7 @@ h1{
 
     margin-bottom:20px;
 
-    font-size:24px;
+    font-size:min(6vw,24px);
 
     text-shadow:0 0 10px black;
 
@@ -79,8 +79,8 @@ h1{
 
 .imageBox img{
 
-    width:320px;
-    height:320px;
+    width:min(80vw,320px);
+    height:min(80vw,320px);
 
     object-fit:contain;
 
@@ -94,7 +94,7 @@ h1{
 
 #prefix{
 
-    font-size:42px;
+    font-size:min(10vw,42px);
 
     font-weight:bold;
 
@@ -112,18 +112,18 @@ h1{
 
     justify-content:center;
 
-    gap:10px;
+    gap:8px;
 
     margin-bottom:25px;
 
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
 
 }
 
 .slot{
 
-    width:70px;
-    height:70px;
+    width:min(12vw,70px);
+    height:min(12vw,70px);
 
     background:#3d456d;
 
@@ -134,7 +134,7 @@ h1{
     justify-content:center;
     align-items:center;
 
-    font-size:34px;
+    font-size:min(6vw,34px);
 
     font-weight:bold;
 
@@ -160,7 +160,7 @@ h1{
 
     justify-content:center;
 
-    gap:10px;
+    gap:8px;
 
     flex-wrap:wrap;
 
@@ -172,8 +172,8 @@ h1{
 
 .tile{
 
-    width:70px;
-    height:70px;
+    width:min(12vw,70px);
+    height:min(12vw,70px);
 
     border:none;
 
@@ -183,7 +183,7 @@ h1{
 
     color:#222;
 
-    font-size:32px;
+    font-size:min(6vw,32px);
 
     font-weight:bold;
 
@@ -217,7 +217,7 @@ h1{
 
     min-height:40px;
 
-    font-size:34px;
+    font-size:min(8vw,34px);
 
     font-weight:bold;
 
@@ -255,11 +255,13 @@ h1{
 
     z-index:999;
 
+    padding:20px;
+
 }
 
 #birthday h1{
 
-    font-size:90px;
+    font-size:min(14vw,90px);
 
     color:#ffe27a;
 
@@ -267,9 +269,23 @@ h1{
 
 }
 
+#birthday h2{
+
+    font-size:min(9vw,42px);
+
+}
+
+#birthday h4{
+
+    font-size:min(5vw,24px);
+
+    margin:10px 0;
+
+}
+
 #birthday p{
 
-    font-size:42px;
+    font-size:min(8vw,42px);
 
 }
 
@@ -315,9 +331,12 @@ h1{
 <div id="birthday">
 
     <h1>🎉HAPPY BIRTHDAY🎉</h1>
+
     <h2>Bahamutts!</h2>
+
     <h4>I always enjoy talking to you.</h4>
-    <h4>I took forward to continuing our conversation.😼🐲</h4>
+
+    <h4>I look forward to continuing our conversation. 😼🐲</h4>
 
     <p>全問正解だよ！！</p>
 
