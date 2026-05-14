@@ -648,9 +648,14 @@ function loadQuestion(){
 
                         }else{
 
-                            alert(
-                                `ゲーム終了！\nScore ${score}/${selectedQuestions.length}\nTry again!!`
-                            );
+document
+.getElementById("birthday")
+.style.display = "flex";
+
+document
+.querySelector("#birthday p")
+.textContent =
+`Score ${score}/${selectedQuestions.length} | Try again!!`;
 
                         }
 
